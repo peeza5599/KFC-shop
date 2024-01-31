@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .service-card img {
+      max-width: 100%;
+      max-height: 200px; /* ปรับตามความเหมาะสม */
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Add custom styles for the navigation bar and search bar */
+    .navbar {
+      background-color: #fffbfb;
+      color: #f80f0f;
+      padding: 20px;
+      border: 5px solid #030303;
+    }
+    .navbar a {
+      color: #060606;
+    }
+    .navbar .navbar-right {
+      padding-right: 20px;
+    }
+    .search-container {
+      margin-right: 10px;
+    }
+    .search-container input[type="text"] {
+      padding: 6px;
+      border: none;
+      width: 200px;
+    }
+    .search-container button {
+      padding: 6px 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    /* Add custom styles for the main content */
+    .main-content {
+      padding: 10% 0;
+      text-align: center;
+      background-image: url("images/bg6.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: #000;
+    }
+    .main-content h1 {
+      margin-top: 0;
+    }
+    /* Service cards */
+    .service-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .service-card {
+      flex-basis: calc(33.33% - 20px);
+      margin: 10px;
+      padding: 25px;
+      background-color: #a4a7a8b0;
+      border: 5px solid #030303;
+      
+    }
+    .service-card:hover {
+      box-shadow: 0 4px 6px rgb(253, 1, 1);
+     
+    }
+    /* Remove margins and padding from body */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-brand.shopstore img {
+      max-width: 80px; 
+      box-shadow: 0px 0px 10px rgba(231, 6, 6, 2);
+      border-radius: 50%;
+      animation: rotateLogo 15s infinite linear;
+    }
+
+    @keyframes rotateLogo { /* LOGOขยับ */
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand shopstore" href="#">
+        <img src="images/Logo2.png" alt="ShopStore Logo"> 
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/customers_auth/productsForm">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pageServiceForm">Service</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pageContactForm">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/signupForm">Singup</a></li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item"><a class="nav-link" href="/loginForm">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="/products">Cart</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Main content -->
+  <div class="main-content">
+    <h1 style="font-size: 48px; color: rgb(255, 255, 255); margin: 0; text-shadow: 5px 5px 4px #000000;  ">Our Services</h1>
+    <div class="service-cards">
+      <div class="service-card">
+        <h2>บริการของเว็บ Bonk-kfc </h2>
+        <img src="images/admin_p.png" alt="Web Design">
+        <p>ยินดีต้อนรับสู่เว็บไซต์ขายไก่ทอดออนไลน์ที่ทำให้คุณสามารถสั่งซื้อและเพลิดเพลินกับความอร่อยของไก่ทอดได้อย่างง่ายดายและสะดวกสบายที่สุด ด้วยบริการที่เป็นเอกลักษณ์เฉพาะตัวของเรา เรามุ่งหวังที่จะทำให้ประสบการณ์การสั่งซื้ออาหารออนไลน์ของคุณเป็นที่น่าตื่นเต้นและพิเศษทุกครั้งที่คุณเข้ามาใช้บริการของเรา.</p>
+      </div>
+      <div class="service-card">
+        <h2>Chef</h2>
+        <img src="images/admin_arm.png" alt="Web Design">
+        <p>เชฟในเว็บขายไก่ทอดเป็นบุคคลที่มีบทบาทสำคัญในการสร้างความอร่อยและคุณภาพของอาหารที่จะถูกจัดส่งถึงลูกค้า นอกจากการทอดไก่ที่อร่อยแล้ว เชฟยังมีหน้าที่หลากหลายอื่นๆ ที่มีส่วนสำคัญในการดำเนินกิจการขายไก่ทอดออนไลน์</p>
+      </div>
+      <div class="service-card">
+        <h2>SEO Optimization</h2>
+        <img src="images/admin_team.jpg" alt="Web Design">
+        <p>เราปรับปรุงการมองเห็นและการจัดอันดับเครื่องมือค้นหาของเว็บไซต์ของคุณ</p>
+      </div>
+    </div>
+    <!-- Add other content here as needed -->
+  </div>
+</body>
+</html>

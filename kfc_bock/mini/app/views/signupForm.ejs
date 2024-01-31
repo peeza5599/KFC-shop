@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Add custom styles for the navigation bar and search bar */
+    .navbar {
+      background-color: #fdfdfd;
+      color: #070707;
+      padding: 20px;
+      border: 5px solid #030303;
+    }
+    .navbar a {
+      color: #060606;
+    }
+    .navbar .navbar-right {
+      float: right;
+      padding-right: 20px;
+    }
+    .search-container {
+      float: right;
+      margin-right: 10px;
+    }
+    .search-container input[type="text"] {
+      padding: 6px;
+      border: none;
+      width: 200px;
+    }
+    .search-container button {
+      padding: 6px 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    /* Add custom styles for the main content */
+    .main-content {
+      padding: 20px;
+      text-align: center;
+      background-color: #f8000000;
+    }
+    /* Add custom styles for the login form */
+    .login-form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+    }
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .login-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #17a5ba67;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    /* Add custom styles for the sign-up form */
+    .signup-form {
+      color: #000000;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 5px solid #0c0c0c;
+      border-radius: 5px;
+      background-color: #ec050591;
+    }
+    .signup-form input[type="text"],
+    .signup-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .signup-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #000000fb;
+      color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .backbackground {
+      background-image: url("images/bg3.jpg"); /* เปลี่ยน 'ชื่อไฟล์รูปภาพ.jpg' เป็นชื่อไฟล์รูปภาพที่คุณต้องการ */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      
+    }
+    .navbar-brand.shopstore img {
+      max-width: 60px; 
+      box-shadow: 0px 0px 10px rgba(231, 6, 6, 2);
+      border-radius: 50%;
+      animation: rotateLogo 15s infinite linear;
+    }
+
+    @keyframes rotateLogo { /* LOGOขยับ */
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+  </style>
+</head>
+<body class="backbackground"></body>
+<body>
+  
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand shopstore" href="/">
+          <img src="images/Logo4.png" alt="ShopStore Logo">
+      </div>
+      <h4>
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/customers_auth/productsForm">Products</a></li>
+          <li><a href="/pageServiceForm">Service</a></li>
+          <li><a href="/pageContactForm">Contact Us</a></li>
+        </ul>
+      </h4>
+    </div>
+  </nav>
+
+  <!-- Sign Up Form -->
+  <div class="main-content">
+    <div class="signup-form">
+      <h2> 🐤 Register 🐤</h2>
+      <form action="/" method="POST" onsubmit="return validateForm()">
+        <input type="text" placeholder="ชื่อ" name="name" required>
+        <input type="text" placeholder="นามสกุล" name="lastname" required>
+        <input type="text" placeholder="ที่อยู่" name="address" required>
+        <input type="text" placeholder="เบอร์โทรศัพท์" name="tel" required>
+        <input type="text" placeholder="Email address" name="email" required>
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="password" placeholder="Password" name="password" id="password" required>
+        <input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required>
+        <button type="submit">สมัครสมาชิก</button>
+      </form>
+      <br>
+      <a href="/" style="color: #030303; font-size: 20px;" >กลับสู่หน้าหลัก</a> <!-- เพิ่มลิงก์กลับสู่หน้าหลัก -->
+    </div>
+  </div>
+  <script>
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmpassword").value;
+
+      if (password !== confirmPassword) {
+        alert("รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน");
+        return false;
+      }
+
+      return confirm("สมัครสมาชิกเรียบร้อยกดตกลง");
+    }
+  </script>
+</body>
+</html>

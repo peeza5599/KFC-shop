@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+
+body {
+  background-image: url('https://www.mashed.com/img/gallery/why-the-worlds-most-authentic-kfc-recipe-might-be-in-ireland/intro-1613483025.jpg'); /* ใส่ชื่อไฟล์รูปภาพที่คุณต้องการแสดง */
+  background-size: cover; /* ปรับขนาดภาพให้เต็มหน้าจอ */
+  background-repeat: no-repeat; /* ไม่ต้องทำซ้ำภาพ */
+  background-attachment: fixed; /* จำนวนรูปภาพให้คงที่เมื่อเลื่อนหน้าเว็บ */
+  
+}
+
+    /* เพิ่มรูปแบบสีและพื้นหลังให้กับ Navbar */
+    .navbar {
+      background-color: #e9d3d3; /* ปรับสีพื้นหลังของ Navbar */
+      color: #ffffff; /* ปรับสีข้อความของ Navbar */
+      padding: 20px; /* ปรับการเว้นระยะของ Navbar */
+    }
+  
+    .navbar a {
+      color: #ffffff; /* ปรับสีข้อความของลิงก์ใน Navbar */
+    }
+  
+    /* เพิ่มการจัดกึ่งกลางให้กับช่องกรอกข้อมูลในฟอร์ม */
+    input[type="text"], input[type="tel"] {
+      margin: 0 auto; /* ทำให้ช่องกรอกข้อมูลจัดกึ่งกลาง */
+      display: block; /* ทำให้ช่องกรอกข้อมูลแสดงเป็นบล็อก */
+    }
+  
+    /* ปรับขนาดของปุ่มยืนยันในฟอร์ม */
+    .btn-primary {
+      padding: 10px 20px; /* ปรับขนาดของปุ่ม */
+      margin-top: 20px; /* เพิ่มระยะห่างด้านบนของปุ่ม */
+    }
+  
+    /* เพิ่มการจัดกึ่งกลางให้กับฟอร์มชำระเงิน */
+    .payment-form {
+      margin-top: 50px; /* เพิ่มระยะห่างด้านบนของฟอร์ม */
+      background-color: #eea4a4da; /* ปรับสีพื้นหลังของฟอร์ม */
+      padding: 30px; /* ปรับการเว้นระยะของฟอร์ม */
+      border-radius: 5px; /* เพิ่มขอบโค้งให้กับฟอร์ม */
+    }
+  </style>
+  <style>
+    .left-aligned-text {
+      text-align: left;
+    }
+  </style>
+</head>
+<body >
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+       <h4> <a class="navbar-brand" href="#">kfc_bonk</a></h4>
+      </div>
+      <h4><ul class="nav navbar-nav">
+        <li><a href="/index">Home</a></li>
+        <li><a href="/customers_auth/productsForm">Products</a></li>
+        <li><a href="/pageServiceForm">Service</a></li>
+        
+        <li><a href="/pageContactForm">Contact Us</a></li>
+      </ul></h4>
+    </nav>
+    </body>
+<!-- Payment form -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 payment-form">
+        <h2>ชำระเงิน</h2>
+        <form  action="/payment/<%= customerID %>/<%= totalAll %>" enctype="multipart/form-data" method="POST" >
+          <div class="form-group">
+            <label for="name">ชื่อ-สกุล ผู้รับ</label>
+            <input type="text" class="form-control" id="name" name="PayName" required>
+          </div>
+          <div class="form-group">
+            <label for="address">ที่อยู่ในการจัดส่ง</label>
+            <input type="text" class="form-control" id="address" name="PayAddress" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">เบอร์โทรศัพท์</label>
+            <input type="tel" class="form-control" id="phone" name="PayTel" required>
+          </div>
+          <div class="form-group">
+            <label for="amount">จำนวนเงิน</label>
+            <input  class="form-control" id="amount" value="<%= totalAll %>" required readonly disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="slip">สลิปโอนเงิน</label>
+            <input type="file" class="form-control" id="slip" name="SlipPayment" accept="image/*" required>
+          </div>
+          
+          <input type="hidden" name="cmID" id="hiddencmID" value='<%= customerID %>'>
+          <input type="hidden" name="TotalAll" id="hiddenTotalAll" value='<%= totalAll %>'>
+          <button type="submit" class="btn btn-primary">ยืนยันข้อมูลชำระเงิน</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

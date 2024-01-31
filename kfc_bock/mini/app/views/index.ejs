@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+   
+    .navbar {
+      background-color: #fffbfb;
+      color: #f80f0f;
+      padding: 10px;
+      border: 3px solid #0a0a0a;
+    }
+    .navbar a {
+      color: #060606;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      color: #FF0000;
+    }
+    /* Custom style for the SHOPSTORE brand */
+    .navbar-brand.shopstore {
+      margin-right: auto;
+      margin-left: 20px;
+    }
+    
+    .navbar-nav .nav-item .nav-link.login   {
+      color: #000000; 
+    }
+
+    .navbar-nav .nav-item .nav-link.cart   {
+      color: #000000; 
+    }
+
+    .navbar-nav .nav-item .nav-link.register   {
+      color: #000000; 
+    }
+
+
+    /* Custom styles for the main content */
+    .main-content {
+      padding: 10% 0;
+      text-align: center;
+      background-image: url("images/bg1.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+    .main-content h1 {
+      margin-top: 0;
+      letter-spacing: 2px;
+      animation: moveText 5s infinite alternate;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-brand.shopstore img {
+      max-width: 80px; 
+      box-shadow: 0px 0px 10px rgba(231, 6, 6, 2);
+      border-radius: 50%;
+      animation: rotateLogo 15s infinite linear;
+    }
+    @keyframes moveText { /* ฟร้อนขยับ */
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(50px); /* ระยะที่ขยับไป */
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    @keyframes rotateLogo { /* LOGOขยับ */
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes moveImage1 {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes moveImage2 {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <div class="container">
+      <a class="navbar-brand shopstore" href="#">
+        <img src="images/Logo.png" alt="ShopStore Logo"> 
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/customers_auth/productsForm">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pageServiceForm">Service</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pageContactForm">Contact Us</a></li>
+          
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link login" href="/loginForm">Login</a></li>
+          <li class="nav-item"><a class="nav-link register" href="/signupForm">Signup</a></li>
+          <li class="nav-item"><a class="nav-link cart" href="/products">Cart</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Main content -->
+  <div class="main-content" style="text-align: center; background-color: #f7f7f7; padding: 50px 0;">
+    <h1 style="font-size: 48px; color: rgb(12, 11, 11); margin: 0; text-shadow: 2px 2px 4px #FF0000;">Welcome to Kfc-Bonk hahaha</h1>
+    <h1 style="font-size: 48px; color: rgb(12, 11, 11); margin: 0; text-shadow: 2px 2px 4px #ffffff;">🤪Enjoy with our chicken🤪</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="images/ck.gif" alt="Product 1" style="max-width: 200%;  animation: moveImage1 3s infinite alternate;">
+        </div>
+        <div class="col-md-6">
+          <img src="images/ck1.gif" alt="Product 2" style="max-width: 100%;  animation: moveImage2 3s infinite alternate;">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

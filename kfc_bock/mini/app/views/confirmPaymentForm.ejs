@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Order</title>
+    <style>
+        body {
+            background-image: url('https://cdn.create.vista.com/api/media/small/217710916/stock-photo-illustration-abstract-low-poly-orange-horizontal-background');
+            text-align: center; /* จัดข้อความอยู่ตรงกลาง */
+            background-color: #f2f2f2; /* เปลี่ยนพื้นหลังเป็นสีเทาอ่อน */
+            font-family: Arial, sans-serif; /* กำหนดฟอนต์ให้กับทั้งหน้าเว็บ */
+            background-size: cover; /* ปรับขนาดภาพให้เต็มหน้าจอ */
+            background-repeat: no-repeat; /* ไม่ต้องทำซ้ำภาพ */
+            background-attachment: fixed; /* จำนวนรูปภาพให้คงที่เมื่อเลื่อนหน้าเว็บ */
+        }
+        .form-group {
+            background-color: #ffffff; /* พื้นหลังสีขาว */
+            background-image: url('https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png');
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
+            margin: 50px auto; /* จัดกลางในหน้าเว็บ */
+            width: 50%; /* กำหนดความกว้าง */
+        }
+        h1 {
+            color: #331111; /* เปลี่ยนสีข้อความเป็นสีแดงอมเหลือง */
+            margin-bottom: 30px; /* เพิ่มระยะห่างด้านล่างของหัวข้อ */
+        }
+        p {
+            margin-bottom: 15px; /* เพิ่มระยะห่างด้านล่างของข้อความ */
+            font-size: 18px; /* กำหนดขนาดตัวอักษร */
+        }
+        .download-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            transition: all 0.3s ease; /* เพิ่มการเปลี่ยนสีเมื่อโฮเวอร์ */
+        }
+        .download-button:hover {
+            background-color: #0056b3; /* สีที่เมื่อโฮเวอร์ไปจะเปลี่ยน */
+        }
+    </style>
+</head>
+<body>
+    <form action="/recept" method="get">
+    <h1>รายละเอียดการสั่งซื้อ</h1>
+    <div class="form-group">
+        <% payment.forEach(function(paymentItem) { %>
+            <p class="card-text">จัดส่งคุณ : <%= paymentItem.PayName %> </p>
+            <p class="card-text">ที่อยู่ในการจัดส่ง : <%= paymentItem.PayAddress %> </p>
+            <p class="card-text">เบอร์ติดต่อ: <%= paymentItem.PayTel %></p>
+            <p class="card-text">จำนวนยอดที่ชำระ : <%= paymentItem.TotalAll %> $</p>
+
+            <input type="hidden" name="PayName" value="<%= paymentItem.PayName %>">
+            <input type="hidden" name="PayAddress" value="<%= paymentItem.PayAddress %>">
+            <input type="hidden" name="PaymentID" value="<%= paymentItem.PaymentID %>">
+            <input type="hidden" name="TotalAll" value="<%= paymentItem.TotalAll %>">
+
+            <% for (let i = 0; i < products.length; i++) { %>
+                <input type="hidden" name="ProductName" value="<%=  products[i].productName %>">
+                <input type="hidden" name="Quantity" value="<%=  products[i].Quantity %>">
+                <input type="hidden" name="SubTotalPrice" value="<%=  products[i].SubTotalPrice  %>">
+            <% } %>
+
+            <button type="submit" class="btn btn-primary">ใบเสร็จการชำระเงิน</button>
+        </form>
+        <% }); %>    
+    </div>
+    </form>
+</body>
+</html>
